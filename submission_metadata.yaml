@@ -11,7 +11,7 @@ team_members:
     role: "ML Engineer"
 
 github_repo: "https://github.com/Karthik-0027/IntelliHire-AI-Powered-Talent-Intelligence-Candidate-Ranking-System"
-sandbox_link: "TODO: deploy this repo to Streamlit Cloud or HuggingFace Spaces and paste the public URL here"
+sandbox_link: "https://intellihire-candidate-ranker.streamlit.app/"
 reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
 
 compute:
