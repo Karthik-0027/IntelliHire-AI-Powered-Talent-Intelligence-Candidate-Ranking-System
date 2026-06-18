@@ -1,64 +1,311 @@
-# Redrob Candidate Ranker
+# IntelliHire – AI-Powered Candidate Ranking System
 
-Offline, CPU-only candidate ranking system for the Redrob Intelligent Candidate
-Discovery & Ranking Challenge.
+[Live Demo](https://intellihire-candidate-ranker.streamlit.app/)
 
-## What it does
+An AI-powered talent intelligence platform that analyzes job descriptions, evaluates candidate profiles beyond keyword matching, and generates explainable candidate rankings using semantic matching, behavioral analytics, and hybrid scoring techniques.
 
-The ranker reads `candidates.jsonl`, scores every candidate against the released
-Senior AI Engineer JD, and writes the required top-100 CSV:
+Built for the **Redrob Intelligent Candidate Discovery & Ranking Challenge**.
+
+---
+
+## Overview
+
+Hiring is more than matching keywords on a resume.
+
+IntelliHire understands the requirements of a role, evaluates candidate experience, technical expertise, career progression, and behavioral signals, then produces a transparent and explainable ranking of the most suitable candidates.
+
+The system is designed to operate efficiently on large-scale candidate datasets while remaining fully reproducible, CPU-only, and free from external API dependencies.
+
+---
+
+## Problem Statement
+
+Traditional hiring systems often rely heavily on keyword matching, resulting in:
+
+* High-quality candidates being overlooked
+* Keyword-stuffed profiles ranking highly
+* Poor consideration of real-world experience
+* Limited insight into candidate engagement and reliability
+
+IntelliHire addresses these challenges through a hybrid ranking framework that combines semantic understanding with candidate quality signals.
+
+---
+
+## Key Features
+
+### Semantic Candidate Matching
+
+Understands the meaning of a job description and compares it against a candidate's complete professional profile.
+
+### Hybrid Ranking Engine
+
+Combines multiple signals into a unified ranking score.
+
+### Behavioral Intelligence
+
+Evaluates candidate engagement using recruiter interaction and activity metrics.
+
+### Explainable Recommendations
+
+Generates transparent reasoning for every ranked candidate.
+
+### Risk & Anomaly Detection
+
+Identifies suspicious profiles, keyword stuffing, and inconsistent career patterns.
+
+### Scalable Processing
+
+Supports datasets containing 100,000+ candidate profiles.
+
+### CPU-Only Execution
+
+Designed to run within challenge constraints without requiring GPUs or external APIs.
+
+---
+
+## System Architecture
+
+```text
+                    Job Description
+                           │
+                           ▼
+                 JD Understanding Layer
+                           │
+                           ▼
+                  Candidate Processing
+                           │
+      ┌────────────────────┼────────────────────┐
+      ▼                    ▼                    ▼
+ Semantic Match     Experience Analysis   Behavioral Signals
+      │                    │                    │
+      └────────────────────┼────────────────────┘
+                           ▼
+                  Hybrid Scoring Engine
+                           │
+                           ▼
+                  Risk & Quality Checks
+                           │
+                           ▼
+                 Explainable Recommendations
+                           │
+                           ▼
+                    Ranked Candidates
+```
+
+---
+
+## Scoring Framework
+
+### 1. Semantic Matching
+
+Measures how closely a candidate's experience, skills, and career history align with the job description.
+
+Evaluates:
+
+* Professional summary
+* Current role
+* Skills
+* Work experience
+* Career narrative
+
+### 2. Experience Assessment
+
+Analyzes:
+
+* Career progression
+* Technical depth
+* Production engineering experience
+* Search and retrieval expertise
+* AI/ML system development
+
+### 3. Behavioral Signals
+
+Incorporates:
+
+* Recruiter response rate
+* Interview completion rate
+* Offer acceptance rate
+* Profile activity
+* Open-to-work status
+* Notice period
+* GitHub activity
+* Recruiter saves
+* Search appearances
+
+### 4. Risk Detection
+
+Penalizes:
+
+* Keyword stuffing
+* Inconsistent experience claims
+* Suspicious skill patterns
+* Low engagement profiles
+* Potential honeypot candidates
+
+---
+
+## Technology Stack
+
+### Programming
+
+* Python
+
+### Data Processing
+
+* Pandas
+* NumPy
+
+### Machine Learning & NLP
+
+* Scikit-Learn
+* Sentence Transformers
+* Semantic Similarity Techniques
+
+### Application Layer
+
+* Streamlit
+
+---
+
+## Repository Structure
+
+```text
+IntelliHire/
+│
+├── app.py
+├── rank.py
+├── validate_submission.py
+├── requirements.txt
+├── submission_metadata.yaml
+├── README.md
+│
+├── outputs/
+│   └── candidate_recommendations.csv
+│
+├── docs/
+│   └── methodology_deck.pdf
+│
+└── data/
+    └── candidates.jsonl
+```
+
+---
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/karthik-0027/IntelliHire.git
+cd IntelliHire
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## Usage
+
+### Generate Candidate Rankings
 
 ```bash
 python rank.py --candidates ./candidates.jsonl --out ./submission.csv
 ```
 
-The method is a transparent hybrid scorer:
-
-- JD fit from career narrative, current title, production search/retrieval/ranking
-  evidence, Python/ML systems skills, and product-company background.
-- Behavioral multiplier from Redrob signals: recency, open-to-work, response
-  rate, notice period, verification, recruiter saves, interview reliability, and
-  GitHub activity.
-- Risk penalties for known traps: keyword stuffing without matching career
-  evidence, pure services-consulting history, stale/unresponsive candidates,
-  impossible skill-duration patterns, and CV/speech-only profiles without IR/NLP.
-
-No network calls, hosted LLM APIs, GPU inference, or external model downloads are
-used during ranking.
-
-## Setup
-
-Python 3.10+ is enough. The core ranker uses only the Python standard library.
+### Validate Submission
 
 ```bash
-python --version
-python rank.py --candidates ./candidates.jsonl --out ./submission.csv
 python validate_submission.py ./submission.csv
 ```
 
-## Sandbox Demo
-
-For the required hosted sandbox, deploy this repo to Streamlit Cloud and set:
+### Run Streamlit Application
 
 ```bash
 streamlit run app.py
 ```
 
-After deployment, paste the public Streamlit URL into `submission_metadata.yaml`
-under `sandbox_link`.
+---
 
-## Files
+## Live Demo
 
-- `rank.py` - full ranking pipeline and CLI.
-- `app.py` - optional Streamlit sandbox demo for small uploaded samples.
-- `validate_submission.py` - challenge validator copied for local checks.
-- `submission_metadata.yaml` - metadata template to fill before portal upload.
-- `outputs/candidate_recommendations.csv` - generated ranked candidates.
-- `docs/methodology_deck.pdf` - concise PDF deck explaining the approach.
+Streamlit Sandbox:
 
-## Reproducibility
+**https://intellihire-candidate-ranker.streamlit.app/**
 
-The scorer is deterministic. Ties are broken by candidate id. On the 100,000-row
-dataset it streams JSONL line by line and stores only compact score/reasoning
-records, so it fits comfortably inside the challenge's 5 minute / 16 GB /
-CPU-only constraint.
+The demo allows users to:
+
+* Upload sample candidate datasets
+* Execute the ranking workflow
+* Review candidate scores
+* Explore ranking explanations
+* Understand the evaluation methodology
+
+---
+
+## Output Format
+
+The system generates:
+
+```text
+submission.csv
+```
+
+Containing:
+
+* Candidate ID
+* Rank
+* Score
+* Recommendation Reasoning
+
+---
+
+## Performance
+
+* Handles 100,000+ candidate profiles
+* CPU-only execution
+* Memory-efficient processing
+* Deterministic ranking
+* Reproducible results
+* No hosted LLM APIs required
+
+---
+
+## Design Principles
+
+* Transparency over black-box ranking
+* Explainable candidate recommendations
+* Scalable architecture
+* Reproducible evaluation
+* Practical hiring intelligence
+
+---
+
+## Future Enhancements
+
+* Learning-to-Rank models
+* Graph-based candidate intelligence
+* Multi-agent candidate evaluation
+* Advanced semantic retrieval
+* Real-time recruiter feedback integration
+
+---
+
+## Author
+
+**Karthik Gollapudi**
+
+B.Tech Data Science | AI/ML | NLP | Information Retrieval | Software Engineering
+
+Email: [karthikgollapudi33@gmail.com](mailto:karthikgollapudi33@gmail.com)
+
+LinkedIn: https://www.linkedin.com/in/karthik-gollapudi
+
+---
+
+## License
+
+This project was developed for educational, research, and hackathon purposes.
