@@ -3,7 +3,7 @@
  **Live Demo:**
 https://intellihire-candidate-ranker.streamlit.app/
 
-**GitHub Repository:**
+ **GitHub Repository:**
 https://github.com/Karthik-0027/IntelliHire-AI-Powered-Talent-Intelligence-Candidate-Ranking-System
 
 An AI-powered talent intelligence platform that analyzes job descriptions, evaluates candidate profiles beyond keyword matching, and generates explainable candidate rankings using semantic matching, behavioral analytics, and hybrid scoring techniques.
@@ -180,6 +180,25 @@ python rank.py --candidates ./candidates.jsonl --out ./submission.csv
 ```bash
 python validate_submission.py ./submission.csv
 ```
+
+### Verify Output Integrity
+
+```bash
+python -c "import pandas as pd; df=pd.read_csv('submission.csv'); print(len(df)); print(df['candidate_id'].nunique())"
+```
+
+Expected Output:
+
+```text
+100
+100
+```
+
+This confirms:
+
+* Exactly 100 ranked candidates were generated
+* All candidate IDs are unique
+* No duplicate recommendations exist
 
 ### Run Streamlit Application
 
