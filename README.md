@@ -1,6 +1,10 @@
 # IntelliHire – AI-Powered Candidate Ranking System
 
-[Live Demo](https://intellihire-candidate-ranker.streamlit.app/)
+ **Live Demo:**
+https://intellihire-candidate-ranker.streamlit.app/
+
+ **GitHub Repository:**
+https://github.com/Karthik-0027/IntelliHire-AI-Powered-Talent-Intelligence-Candidate-Ranking-System
 
 An AI-powered talent intelligence platform that analyzes job descriptions, evaluates candidate profiles beyond keyword matching, and generates explainable candidate rankings using semantic matching, behavioral analytics, and hybrid scoring techniques.
 
@@ -18,48 +22,24 @@ The system is designed to operate efficiently on large-scale candidate datasets 
 
 ---
 
-## Problem Statement
+## Dataset
 
-Traditional hiring systems often rely heavily on keyword matching, resulting in:
+The challenge dataset (`candidates.jsonl`) is **not included** in this repository due to dataset size constraints and challenge distribution policies.
 
-* High-quality candidates being overlooked
-* Keyword-stuffed profiles ranking highly
-* Poor consideration of real-world experience
-* Limited insight into candidate engagement and reliability
-
-IntelliHire addresses these challenges through a hybrid ranking framework that combines semantic understanding with candidate quality signals.
+The ranking pipeline expects the official dataset provided by the challenge organizers.
 
 ---
 
 ## Key Features
 
-### Semantic Candidate Matching
-
-Understands the meaning of a job description and compares it against a candidate's complete professional profile.
-
-### Hybrid Ranking Engine
-
-Combines multiple signals into a unified ranking score.
-
-### Behavioral Intelligence
-
-Evaluates candidate engagement using recruiter interaction and activity metrics.
-
-### Explainable Recommendations
-
-Generates transparent reasoning for every ranked candidate.
-
-### Risk & Anomaly Detection
-
-Identifies suspicious profiles, keyword stuffing, and inconsistent career patterns.
-
-### Scalable Processing
-
-Supports datasets containing 100,000+ candidate profiles.
-
-### CPU-Only Execution
-
-Designed to run within challenge constraints without requiring GPUs or external APIs.
+* Semantic Candidate Matching
+* Hybrid Ranking Engine
+* Behavioral Intelligence
+* Explainable Recommendations
+* Risk & Anomaly Detection
+* Scalable Processing for 100,000+ Candidates
+* CPU-Only Execution
+* Deterministic & Reproducible Results
 
 ---
 
@@ -94,56 +74,6 @@ Designed to run within challenge constraints without requiring GPUs or external 
 
 ---
 
-## Scoring Framework
-
-### 1. Semantic Matching
-
-Measures how closely a candidate's experience, skills, and career history align with the job description.
-
-Evaluates:
-
-* Professional summary
-* Current role
-* Skills
-* Work experience
-* Career narrative
-
-### 2. Experience Assessment
-
-Analyzes:
-
-* Career progression
-* Technical depth
-* Production engineering experience
-* Search and retrieval expertise
-* AI/ML system development
-
-### 3. Behavioral Signals
-
-Incorporates:
-
-* Recruiter response rate
-* Interview completion rate
-* Offer acceptance rate
-* Profile activity
-* Open-to-work status
-* Notice period
-* GitHub activity
-* Recruiter saves
-* Search appearances
-
-### 4. Risk Detection
-
-Penalizes:
-
-* Keyword stuffing
-* Inconsistent experience claims
-* Suspicious skill patterns
-* Low engagement profiles
-* Potential honeypot candidates
-
----
-
 ## Technology Stack
 
 ### Programming
@@ -158,7 +88,6 @@ Penalizes:
 ### Machine Learning & NLP
 
 * Scikit-Learn
-* Sentence Transformers
 * Semantic Similarity Techniques
 
 ### Application Layer
@@ -170,8 +99,8 @@ Penalizes:
 ## Repository Structure
 
 ```text
-IntelliHire/
-│
+IntelliHire-AI-Powered-Talent-Intelligence-Candidate-Ranking-System/
+
 ├── app.py
 ├── rank.py
 ├── validate_submission.py
@@ -184,9 +113,6 @@ IntelliHire/
 │
 ├── docs/
 │   └── methodology_deck.pdf
-│
-└── data/
-    └── candidates.jsonl
 ```
 
 ---
@@ -196,8 +122,9 @@ IntelliHire/
 Clone the repository:
 
 ```bash
-git clone https://github.com/karthik-0027/IntelliHire.git
-cd IntelliHire
+git clone https://github.com/Karthik-0027/IntelliHire-AI-Powered-Talent-Intelligence-Candidate-Ranking-System.git
+
+cd IntelliHire-AI-Powered-Talent-Intelligence-Candidate-Ranking-System
 ```
 
 Install dependencies:
@@ -210,19 +137,19 @@ pip install -r requirements.txt
 
 ## Usage
 
-### Generate Candidate Rankings
+Generate Candidate Rankings:
 
 ```bash
 python rank.py --candidates ./candidates.jsonl --out ./submission.csv
 ```
 
-### Validate Submission
+Validate Submission:
 
 ```bash
 python validate_submission.py ./submission.csv
 ```
 
-### Run Streamlit Application
+Run Streamlit Application:
 
 ```bash
 streamlit run app.py
@@ -232,13 +159,11 @@ streamlit run app.py
 
 ## Live Demo
 
-Streamlit Sandbox:
-
-**https://intellihire-candidate-ranker.streamlit.app/**
+https://intellihire-candidate-ranker.streamlit.app/
 
 The demo allows users to:
 
-* Upload sample candidate datasets
+* Upload candidate datasets
 * Execute the ranking workflow
 * Review candidate scores
 * Explore ranking explanations
@@ -274,35 +199,15 @@ Containing:
 
 ---
 
-## Design Principles
-
-* Transparency over black-box ranking
-* Explainable candidate recommendations
-* Scalable architecture
-* Reproducible evaluation
-* Practical hiring intelligence
-
----
-
-## Future Enhancements
-
-* Learning-to-Rank models
-* Graph-based candidate intelligence
-* Multi-agent candidate evaluation
-* Advanced semantic retrieval
-* Real-time recruiter feedback integration
-
----
-
 ## Author
 
 **Karthik Gollapudi**
 
 B.Tech Data Science | AI/ML | NLP | Information Retrieval | Software Engineering
 
-Email: [karthikgollapudi33@gmail.com](mailto:karthikgollapudi33@gmail.com)
+📧 [karthikgollapudi33@gmail.com](mailto:karthikgollapudi33@gmail.com)
 
-LinkedIn: https://www.linkedin.com/in/karthik-gollapudi
+🔗 https://www.linkedin.com/in/karthik-gollapudi
 
 ---
 
