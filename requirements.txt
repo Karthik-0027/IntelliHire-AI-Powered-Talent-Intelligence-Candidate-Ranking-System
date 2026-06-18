@@ -1,0 +1,3 @@
+# Core ranker uses no third-party runtime dependencies.
+# Only needed for the optional hosted sandbox demo:
+streamlit>=1.35

@@ -1,0 +1,51 @@
+team_name: "team-redrob-ranker"
+
+primary_contact:
+  name: "Karthik Gollapudi"
+  email: "karthikgollapudi33@gmail.com"
+  phone: "+91-8309521557"
+
+team_members:
+  - name: "Karthik Gollapudi"
+    email: "karthikgollapudi33@gmail.com"
+    role: "ML Engineer"
+
+github_repo: "https://github.com/Karthik-0027/redrob_candidate_ranker"
+sandbox_link: "TODO: deploy this repo to Streamlit Cloud or HuggingFace Spaces and paste the public URL here"
+reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
+
+compute:
+  platform: "Local Windows machine"
+  cpu_cores: 8
+  ram_gb: 16
+  python_version: "3.11"
+  os: "Windows"
+  uses_gpu_for_inference: false
+  has_network_during_ranking: false
+  pre_computation_required: false
+  pre_computation_time_minutes: 0
+
+ai_tools_used:
+  - "ChatGPT"
+
+ai_usage_summary: |
+  Used ChatGPT/Codex to inspect the challenge bundle, implement the offline
+  scorer, generate documentation, and validate the submission format. No hosted
+  LLM or external API is called by the ranking code.
+
+methodology_summary: |
+  Deterministic hybrid ranker for the Senior AI Engineer JD. The core score
+  prioritizes production evidence for embeddings, hybrid retrieval, vector
+  search, ranking/evaluation, Python, and ML systems in product-company roles.
+  Redrob behavioral signals then adjust for availability and hireability:
+  recency, open-to-work, response rate, notice period, interview reliability,
+  recruiter saves, verification, and GitHub activity. Penalties catch keyword
+  stuffers, services-only histories, stale/unresponsive profiles, impossible
+  skill-duration patterns, and CV/speech-heavy profiles without NLP/IR evidence.
+
+declarations:
+  read_submission_spec: true
+  code_is_original_work: true
+  no_collusion: true
+  honeypot_check_done: true
+  reproduction_tested: true
