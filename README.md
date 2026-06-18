@@ -3,7 +3,7 @@
  **Live Demo:**
 https://intellihire-candidate-ranker.streamlit.app/
 
- **GitHub Repository:**
+**GitHub Repository:**
 https://github.com/Karthik-0027/IntelliHire-AI-Powered-Talent-Intelligence-Candidate-Ranking-System
 
 An AI-powered talent intelligence platform that analyzes job descriptions, evaluates candidate profiles beyond keyword matching, and generates explainable candidate rankings using semantic matching, behavioral analytics, and hybrid scoring techniques.
@@ -30,16 +30,48 @@ The ranking pipeline expects the official dataset provided by the challenge orga
 
 ---
 
+## Problem Statement
+
+Traditional hiring systems often rely heavily on keyword matching, resulting in:
+
+* High-quality candidates being overlooked
+* Keyword-stuffed profiles ranking highly
+* Poor consideration of real-world experience
+* Limited insight into candidate engagement and reliability
+
+IntelliHire addresses these challenges through a hybrid ranking framework that combines semantic understanding with candidate quality signals.
+
+---
+
 ## Key Features
 
-* Semantic Candidate Matching
-* Hybrid Ranking Engine
-* Behavioral Intelligence
-* Explainable Recommendations
-* Risk & Anomaly Detection
-* Scalable Processing for 100,000+ Candidates
-* CPU-Only Execution
-* Deterministic & Reproducible Results
+### Semantic Candidate Matching
+
+Understands the meaning of a job description and compares it against a candidate's complete professional profile.
+
+### Hybrid Ranking Engine
+
+Combines multiple signals into a unified ranking score.
+
+### Behavioral Intelligence
+
+Evaluates candidate engagement using recruiter interaction and activity metrics.
+
+### Explainable Recommendations
+
+Generates transparent reasoning for every ranked candidate.
+
+### Risk & Anomaly Detection
+
+Identifies suspicious profiles, keyword stuffing, and inconsistent career patterns.
+
+### Scalable Processing
+
+Supports datasets containing 100,000+ candidate profiles.
+
+### CPU-Only Execution
+
+Designed to run within challenge constraints without requiring GPUs, hosted LLMs, or external APIs.
 
 ---
 
@@ -137,19 +169,19 @@ pip install -r requirements.txt
 
 ## Usage
 
-Generate Candidate Rankings:
+### Generate Candidate Rankings
 
 ```bash
 python rank.py --candidates ./candidates.jsonl --out ./submission.csv
 ```
 
-Validate Submission:
+### Validate Submission
 
 ```bash
 python validate_submission.py ./submission.csv
 ```
 
-Run Streamlit Application:
+### Run Streamlit Application
 
 ```bash
 streamlit run app.py
@@ -157,16 +189,31 @@ streamlit run app.py
 
 ---
 
+## Sandbox Note
+
+The Streamlit application is intended for demonstration and testing using small candidate samples.
+
+For full-scale ranking on the official challenge dataset (~100k candidates), use the offline ranking pipeline:
+
+```bash
+python rank.py --candidates ./candidates.jsonl --out ./submission.csv
+```
+
+---
+
 ## Live Demo
+
+**Streamlit Sandbox**
 
 https://intellihire-candidate-ranker.streamlit.app/
 
 The demo allows users to:
 
-* Upload candidate datasets
+* Upload sample candidate datasets
 * Execute the ranking workflow
 * Review candidate scores
 * Explore ranking explanations
+* Download ranked recommendations
 * Understand the evaluation methodology
 
 ---
@@ -196,6 +243,16 @@ Containing:
 * Deterministic ranking
 * Reproducible results
 * No hosted LLM APIs required
+
+---
+
+## Design Principles
+
+* Transparency over black-box ranking
+* Explainable candidate recommendations
+* Scalable architecture
+* Reproducible evaluation
+* Practical hiring intelligence
 
 ---
 
