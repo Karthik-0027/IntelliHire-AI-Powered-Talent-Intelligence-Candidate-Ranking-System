@@ -109,22 +109,26 @@ Designed to run within challenge constraints without requiring GPUs, hosted LLMs
 ## Technology Stack
 
 ### Programming
-
-* Python
+- Python
 
 ### Data Processing
-
-* Pandas
-* NumPy
-
-### Machine Learning & NLP
-
-* Scikit-Learn
-* Semantic Similarity Techniques
+- JSONL Processing
+- Python Standard Library
 
 ### Application Layer
+- Streamlit
 
-* Streamlit
+### Deployment & Version Control
+- GitHub
+- Streamlit Cloud
+
+### Why These Technologies?
+
+- Lightweight and CPU-efficient
+- Deterministic and reproducible ranking
+- No external APIs or hosted LLM dependencies
+- Supports large-scale candidate datasets
+- Easy deployment and validation
 
 ---
 
