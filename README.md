@@ -148,7 +148,7 @@ IntelliHire-AI-Powered-Talent-Intelligence-Candidate-Ranking-System/
 │   └── candidate_recommendations.csv
 │
 ├── docs/
-│   └── methodology_deck_final.pdf
+│   └── Methodology_deck.pdf
 ```
 
 ---
